@@ -1,0 +1,109 @@
+// -----SCSS VARIABLE------//
+@import 'Variable/warna';
+@import 'Variable/font';
+
+// -----SCSS LAYOUT-------//
+@import 'Layout/main';
+@import 'Layout/Layout';
+
+
+/*-------------------BERANDA STYLE--------------------*/
+
+#Beranda{
+  width: 100%;
+  padding: 50px 120px;
+  display: flex;
+  #MWrap{
+    width: 100%;
+  }
+
+  #MWrap>div>div:nth-of-type(1){
+    text-align: center;
+  }
+
+  #MWrap>div>div:nth-of-type(2){
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    justify-content: center;
+    div{
+      border-radius: 10px;
+      width: 31%;
+      border: 1px solid rgb(224, 224, 224);
+      border-bottom: 5px solid rgb(224, 224, 224);
+      border-left: 5px solid rgb(224, 224, 224);
+      background-color: white;
+      height: 300px;
+      margin: 10px 10px;
+    }
+  }
+}
+
+/*-------------------LEGISLASI STYLE--------------------*/
+
+#Legislasi{
+  width: 100%;
+  #LWrap1{
+    padding: 0 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-image: url('/Assets/PHB.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    h2, h1{
+      color: white;
+      font-size: 42px;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.68);
+    }
+  }
+
+  #LWrap2{
+    padding: 50px 200px;
+    div{
+      margin: 10px 0;
+      h4{
+        color: rgb(111, 111, 111);
+      }
+      ul{
+        margin: 10px 40px;
+        li{
+          margin: 5px 0;
+          a:hover{
+            color: rgb(255, 0, 0);
+            border-bottom: 1px solid rgb(255, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------INPUT DATA STYLE--------------------*/
+#Input-data{
+  width: 100%;
+  h1{
+    text-align: center;
+    padding: 30px 0 15px 0;
+  }
+  div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 30px 0;
+    input, select{
+      width: 100%;
+    }
+    input[type=submit]{
+      margin-top: 20px;
+      height: 30px;
+      width: 50% !important;
+    }
+  }
+}

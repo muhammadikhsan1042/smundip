@@ -1,0 +1,247 @@
+/*---------------------------------------------*/
+/*----------------HEADER STYLE-----------------*/
+/*---------------------------------------------*/
+
+header{
+
+  /*------------ Header Menu Pertama ---------------*/
+  #HWrap1{
+    padding: 10px 120px;
+    box-sizing: border-box;
+    height: 200px;
+    width: 100%;
+    background-image: url('/Assets/hBackground.png');
+    background-size: contain;
+
+    /*------------ Header Menu Atas ---------------*/
+
+    #HMenu1{
+      display: flex;
+      width: 70%;
+      border-bottom: 0.5px solid $wBorderGrey;
+      height: 30px;
+    }
+
+    .aSearch{
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      input{
+        background-color: inherit;
+        border: none;
+        height: 25px;
+      }
+      input:focus{
+        outline: none;
+      }
+      input[type=text]{
+        margin-left: 10px;
+        width: 80%;
+      }
+      input[type=button]{
+        width: 10%;
+        border-left: 0.5px solid black;
+      }
+      input[type=button]:hover{
+        color: rgb(254, 160, 0);
+      }
+    }
+
+    #HMenu1>div{
+        display: flex;
+        width: 50%;
+        div{
+          text-align: center;
+          display: flex;
+          align-items: center;
+          div:nth-of-type(1){
+            display: inline-block;
+            width: 30px;
+            i{
+              font-weight: bolder;
+              font-size: 20px;
+          }
+        }
+      }
+    }
+
+    #HMenu1>div>div:hover{
+      cursor: pointer;
+      color: rgb(254, 156, 52);
+    }
+
+    #HMenu1>div>div{
+      padding: 0 10px;
+    }
+
+    #HMenu1>div:nth-of-type(3){
+        justify-content: flex-end;
+    }
+
+    /*------------ Header Menu Bawah ---------------*/
+
+    #HMenu2{
+      height: 170px;
+      display: flex;
+      width: 85%;
+      align-items: center;
+    }
+
+
+
+    #HMenu2>div:nth-of-type(1){
+      margin-top: -10px;
+      width: 50%;
+      display: flex;
+
+      div:nth-of-type(2){
+        text-align: left;
+        align-self: center;
+        padding-left: 10px;
+        h1{
+          font-size: 34px;
+        }
+      }
+    }
+
+    #HMenu2>div:nth-of-type(2){
+      margin-top: -10px;
+      display: flex;
+      width: 50%;
+      justify-content: flex-end;
+      font-size: 12px;
+      h4{
+        font-weight: bolder;
+        color: white;
+      }
+    }
+
+    #HMenu2>div:nth-of-type(2)>div{
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      width: 270px;
+      border-radius: 10px;
+      justify-content: center;
+      background-color: $wBlue;
+    }
+
+    #HMenu2>div:nth-of-type(2)>div>div:nth-of-type(2){
+      display: flex;
+      background-color: white;
+      width: 230px;
+      margin-top: 10px;
+      border-radius: 5px;
+
+      input{
+        border: none;
+        background-color: inherit;
+        height: 30px;
+        box-sizing: border-box;
+      }
+
+      input[type=text]{
+        font-size: 12px;
+        padding: 0 5px;
+        width: 190px;
+        border-right: 1px solid black;
+      }
+
+      input[type=button]{
+        width: 40px;
+      }
+
+      input[type=button]:hover{
+        background-color: aqua;
+        border-radius: 0 5px 5px 0;
+      }
+
+    }
+
+  }
+
+  /*------------ Header Menu Kedua ---------------*/
+  #HWrap2{
+    display: flex;
+    padding: 0 120px;
+    box-sizing: border-box;
+    background-color: $wBlue;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    div{
+      line-height: 40px;
+      height: 100%;
+      padding: 0 50px;
+      color: white;
+    }
+    div:hover{
+      cursor: pointer;
+      background-color: rgb(91, 231, 255);
+      color : black;
+      font-weight: bolder;
+    }
+  }
+
+  .Hfixed{
+    position: fixed;
+    top: 0;
+  }
+}
+
+/*---------------------------------------------*/
+/*----------------FOOTER STYLE-----------------*/
+/*---------------------------------------------*/
+
+
+footer{
+  padding: 0 150px;
+  height: 70px;
+  display: flex;
+  background-color: $wBlue;
+  align-items: center;
+  color: white;
+
+  .FLine1:nth-of-type(1){
+    width: 40%;
+  }
+
+  .FLine1:nth-of-type(2){
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    p{
+      padding-right: 10px;
+    }
+    div{
+      border: 1px solid white;
+      margin: 0 2px;
+      padding: 7px 10px 2px 10px;
+    }
+    div:hover{
+      cursor: pointer;
+    }
+    div:nth-of-type(1):hover{
+      background-color:rgb(43, 255, 0);
+      transition: background-color 1s;
+    }
+    div:nth-of-type(2):hover{
+      background-color:aqua;
+      transition: background-color 1s;
+    }
+    div:nth-of-type(3):hover{
+      background-color:rgb(191, 0, 178);
+      transition: background-color 1s;
+    }
+    div:nth-of-type(4):hover{
+      background-color:rgb(255, 153, 0);
+      transition: background-color 1s;
+    }
+    div:nth-of-type(5):hover{
+      background-color:rgb(255, 69, 0);
+      transition: background-color 1s;
+    }
+
+  }
+}
