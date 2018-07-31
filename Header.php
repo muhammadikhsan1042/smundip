@@ -1,12 +1,4 @@
-<?php
-
-require_once 'vendor/autoload.php';
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
-
-require_once 'Core/Init.php';
-
-?>
+<?php require_once 'Core/Init.php';?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

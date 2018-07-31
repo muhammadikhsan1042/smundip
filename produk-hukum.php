@@ -1,4 +1,4 @@
-<?php include_once 'Header.php'; ?>
+<?php require_once 'Header.php'; ?>
 
 <main id="Legislasi">
   <div id="LWrap1">
@@ -41,4 +41,4 @@
   </div>
 </main>
 
-<?php include_once 'Footer.php'; ?>
+<?php require_once 'Footer.php'; ?>
