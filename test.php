@@ -1,15 +1,15 @@
 <?php
 
-  $a ='null';
-  if (isset($a)) {
-    echo "a";
-  } else {
-    echo "b";
-  }
+$cars=array();
+if (!empty(count($cars))) {
+  echo "Teruskan";
+} else {
+  echo "Berhenti";
+}
 
 ?>
 
 <form action="test" method="post" enctype="multipart/form-data">
-  <input type="file" name="Upload_Foto">
+  <input type="text" name="test" value="">
   <input type="submit" name="submit">
 </form>

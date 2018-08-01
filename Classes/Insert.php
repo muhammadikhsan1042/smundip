@@ -15,4 +15,14 @@ class Insert
     if ($this->_db->post($table, $value)) return true;
     else return false;
   }
+
+  public function Cek_data($table, $kolom='*', $value=null){
+    if ($this->_db->Cek_data($table, $kolom, $value)) return true;
+    else return false;
+  }
+
+  public function Select_data($table, $kolom='*', $value=null)
+  {
+    return $this->_db->Select_data($table, $kolom, $value);
+  }
 }

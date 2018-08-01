@@ -41,10 +41,34 @@ class Database
 
     }
 
-    public function runQuery($query)
+    public function runQuery($query, $type = true)
     {
-      if ($this->mysqli->query($query))return true;
-      else return false;
+      if ($type) {
+        if ($this->mysqli->query($query) && $this->mysqli->query($query)->num_rows > 0)return true;
+        else return false;
+      } else {
+        if ($this->mysqli->query($query) && $this->mysqli->query($query)->num_rows > 0)return $this->mysqli->query($query)->fetch_object();
+        return null;
+      }
+    }
+
+    public function Cek_data($table, $kolom, $value){
+      if (isset($value)) {
+        $query = "SELECT $kolom FROM $table WHERE $kolom=$value";
+      } else {
+        $query = "SELECT $kolom FROM $table";
+      }
+      return $this->runQuery($query);
+    }
+
+    public function Select_data($table, $kolom, $value){
+      if (isset($value)) {
+        $query = "SELECT $kolom FROM $table WHERE $kolom=$value";
+      } else {
+        $query = "SELECT $kolom FROM $table";
+      }
+
+      return $this->runQuery($query, false);
     }
 
     public function escape($value)
