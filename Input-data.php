@@ -62,9 +62,6 @@
                               'min'      => 4,
                               'max'      => 50
                             ),
-      'Delegasi'        => array(
-                              'required' => true,
-                            ),
       'Komisi'          => array(
                               'required' => true,
                             ),
@@ -78,6 +75,14 @@
                             ),
     ));
 
+    if (Input::get('Jabatan_1') != 'Staf Ahli') {
+      $validation->check(array(
+        'Delegasi'        => array(
+                                'required' => true,
+                              ),
+      ));
+    }
+
     //3. Lolos Check
     if ($validation->passed() && $Upload->setFile(Input::get('Upload_Foto')['tmp_name'], "./Upload/".Input::get('NIM').".jpg")) {
 
@@ -87,18 +92,18 @@
       if (Input::get('Komisi') != 'BKSAP' || Input::get('Komisi') != 'BURT')$Komisi = Input::get('Komisi');
       else $Komisi = 'Staf Ahli';
 
-      if (Input::get('Jabatan_2') != 'null' && Input::get('Jabatan_1') != 'Staf Ahli' && Input::get('Komisi') != 'Pimpinan')$Jabatan_2 = Input::get('Jabatan_2');
+      if (!empty(Input::get('Jabatan_2')) && Input::get('Jabatan_1') != 'Staf Ahli' && Input::get('Komisi') != 'Pimpinan')$Jabatan_2 = Input::get('Jabatan_2');
       else $Jabatan_2 = null;
 
       // Input data ke database
       $Insert->Post_data('list_anggota', array(
-        'Nama_Lengkap'     => Input::get('Nama_Lengkap'),
-        'Nama_Panggilan'   => Input::get('Nama_Panggilan'),
+        'Nama_Lengkap'     => strtoupper(Input::get('Nama_Lengkap')),
+        'Nama_Panggilan'   => strtoupper(Input::get('Nama_Panggilan')),
         'Gender'           => Input::get('Jenis_Kelamin'),
-        'Tempat_Lahir'     => Input::get('Tempat_Lahir'),
+        'Tempat_Lahir'     => ucfirst(Input::get('Tempat_Lahir')),
         'Tanggal_Lahir'    => Input::get('Tanggal_Lahir'),
-        'Alamat_Rumah'     => Input::get('Alamat_Rumah'),
-        'Alamat_Kos'       => Input::get('Alamat_Kos'),
+        'Alamat_Rumah'     => ucfirst(Input::get('Alamat_Rumah')),
+        'Alamat_Kos'       => ucfirst(Input::get('Alamat_Kos')),
         'Fakultas'         => strtoupper(Input::get('Fakultas')),
         'Jurusan'          => strtoupper(Input::get('Jurusan')),
         'Angkatan'         => Input::get('Angkatan'),
@@ -111,7 +116,7 @@
       ));
 
       echo "<script>alert('Berhasil Memasukan Data');history.go(-1) </script>";
-      header('Location: /');
+      return false;
 
     } else {
       $errors = $validation->errors();
@@ -121,6 +126,9 @@
 <main id="Input-data">
   <form action="/Input-data" method="post" enctype="multipart/form-data">
     <h1>Data Diri Anggota Senat Mahasiswa Universitas Diponegoro</h1>
+    <div>
+      <span style="color:red">Note : Untuk Kerapian, Disetiap awal kata diawali dengan huruf kapital</span>
+    </div>
     <div>
       <table>
         <tbody>
@@ -157,7 +165,7 @@
             <td width="10">:</td>
             <td width="300">
               <select name="Jenis_Kelamin">
-                <option value="null">-- Pilih Disini --</option>
+                <option value="">-- Pilih Disini --</option>
                 <option value="Pria" <?php if (Input::get('Jenis_Kelamin') == 'Pria'): ?>
                     selected
                 <?php endif; ?>>Pria</option>
@@ -263,7 +271,7 @@
             <td width="10">:</td>
             <td width="300">
               <select name="Angkatan">
-                <option value="null">-- Pilih Disini --</option>
+                <option value="">-- Pilih Disini --</option>
                 <option value="2015"<?php if (Input::get('Angkatan') == '2015'): ?>
                     selected
                 <?php endif; ?>>2015</option>
@@ -300,7 +308,7 @@
             <td width="10">:</td>
             <td width="300">
               <select name="Komisi">
-                <option value="null">-- Pilih disini --</option>
+                <option value="">-- Pilih disini --</option>
                 <option value="Pimpinan" <?php if (Input::get('Komisi') == 'Pimpinan'): ?>
                     selected
                 <?php endif; ?>>Pimpinan</option>
@@ -343,7 +351,7 @@
             <td width="10">:</td>
             <td width="300">
               <select name="Jabatan_1">
-                <option value="null">-- Pilih disini --</option>
+                <option value="">-- Pilih disini --</option>
                 <option value="Ketua" <?php if (Input::get('Jabatan_1') == 'Ketua'): ?>
                     selected
                 <?php endif; ?>>Ketua</option>
@@ -369,7 +377,7 @@
           <tr align="left" height="25" id="Delegasi">
             <td width="200" style="padding-left:6px">Delegasi</td>
             <td width="10">:</td>
-            <td width="300"><input type="text" name="Delegasi" placeholder="Contoh : " value="<?php echo Input::get('Delegasi') ?>"></td>
+            <td width="300"><input type="text" name="Delegasi" placeholder="Contoh : Peduli Sosial" value="<?php echo Input::get('Delegasi') ?>"></td>
           </tr>
 
           <?php if (!empty($errors['Delegasi'])): ?>
@@ -383,7 +391,7 @@
             <td width="10">:</td>
             <td width="300">
               <select name="Jabatan_2">
-                <option value="null">-- Pilih disini --</option>
+                <option value="">-- Pilih disini --</option>
                 <option value="Sekretaris Jendral" <?php if (Input::get('Jabatan_2') == 'Sekretaris Jendral'): ?>
                     selected
                 <?php endif; ?>>Sekretaris Jendral</option>

@@ -112,19 +112,19 @@
         <div <?php if ($_SERVER['REQUEST_URI']=='/'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="beranda">
           Beranda
         </div>
-        <div <?php if ($_SERVER['REQUEST_URI']=='/berita'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="berita">
+        <div <?php if (strpos($_SERVER['REQUEST_URI'], 'berita')==1){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="berita">
           Berita
         </div>
-        <div <?php if ($_SERVER['REQUEST_URI']=='/agenda'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="agenda">
+        <div <?php if (strpos($_SERVER['REQUEST_URI'], 'agenda')==1){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="agenda">
           Agenda
         </div>
-        <div <?php if ($_SERVER['REQUEST_URI']=='/produk-hukum'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="legislasi">
+        <div <?php if (strpos($_SERVER['REQUEST_URI'], 'produk-hukum')==1){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="legislasi">
           Produk Hukum
         </div>
-        <div <?php if ($_SERVER['REQUEST_URI']=='/keanggotaan'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="keanggotaan">
+        <div <?php if (strpos($_SERVER['REQUEST_URI'], 'keanggotaan')==1){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="keanggotaan">
           Keanggotaan
         </div>
-        <div <?php if ($_SERVER['REQUEST_URI']=='/about'){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="about">
+        <div <?php if (strpos($_SERVER['REQUEST_URI'], 'about')==1){?>style="background-color: rgb(91, 231, 255); color : black; font-weight:900;" <?php } ?> id="about">
           Tentang SM Undip
         </div>
 

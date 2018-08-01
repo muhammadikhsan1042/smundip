@@ -1,15 +1,9 @@
 <?php
-
-$cars=array();
-if (!empty(count($cars))) {
-  echo "Teruskan";
-} else {
-  echo "Berhenti";
-}
+$page = isset($_GET['a'])? (int)$_GET["a"]:1;
+echo $page;
 
 ?>
 
-<form action="test" method="post" enctype="multipart/form-data">
-  <input type="text" name="test" value="">
-  <input type="submit" name="submit">
-</form>
+
+<a href="/test?a=2&&b=3">2</a>
+<a href="/test?a=3&&b=9">3</a>

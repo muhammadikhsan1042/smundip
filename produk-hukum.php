@@ -1,6 +1,6 @@
 <?php require_once 'Header.php'; ?>
 
-<main id="Legislasi">
+<main id="Page_Legislasi">
   <div id="LWrap1">
     <h2>Produk Hukum Senat Mahasiswa</h2>
     <h1>Universitas Diponegoro</h1>

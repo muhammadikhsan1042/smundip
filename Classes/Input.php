@@ -10,6 +10,8 @@ class Input
         return $_GET[$name];
       } else if (isset($_FILES[$name])) {
         return $_FILES[$name];
+      } else {
+        return null;
       }
     }
 }

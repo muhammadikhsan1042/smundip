@@ -13,7 +13,7 @@ class Validation
         $name = str_replace("_", " ", $item);
         switch ($key) {
           case 'required':
-            if (empty(trim(Input::get($item))) || Input::get($item) == 'null') {
+            if (empty(trim(Input::get($item)))) {
               $this->addError($name.' Wajib Diisi', $item);
             }
             break;

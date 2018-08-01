@@ -1,6 +1,6 @@
 <?php require_once 'Header.php'; ?>
 
-<main id="Beranda">
+<main id="Page_Beranda">
   <div id="MWrap">
 
     <!-------------- Berita  ------------>

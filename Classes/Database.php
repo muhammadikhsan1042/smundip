@@ -43,11 +43,12 @@ class Database
 
     public function runQuery($query, $type = true)
     {
+      $resault = $this->mysqli->query($query);
       if ($type) {
-        if ($this->mysqli->query($query) && $this->mysqli->query($query)->num_rows > 0)return true;
+        if ($resault && $resault->num_rows > 0)return true;
         else return false;
       } else {
-        if ($this->mysqli->query($query) && $this->mysqli->query($query)->num_rows > 0)return $this->mysqli->query($query)->fetch_object();
+        if ($resault && $resault->num_rows > 0)return $this->mysqli->query($query);
         return null;
       }
     }
@@ -67,7 +68,15 @@ class Database
       } else {
         $query = "SELECT $kolom FROM $table";
       }
+      return $this->runQuery($query, false);
+    }
 
+    public function Limit_data($tabel, $kolom, $awal, $panjang){
+      if (isset($awal)) {
+        $query = "SELECT $kolom FROM $tabel LIMIT $awal, $panjang";
+      } else{
+        $query = "SELECT $kolom FROM $tabel LIMIT $panjang";
+      }
       return $this->runQuery($query, false);
     }
 
