@@ -6,4 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Database' => $baseDir . '/Classes/Database.php',
+    'Dotenv' => $baseDir . '/Classes/Dotenv.php',
+    'Input' => $baseDir . '/Classes/Input.php',
+    'Insert' => $baseDir . '/Classes/Insert.php',
+    'Token' => $baseDir . '/Classes/Token.php',
+    'Upload' => $baseDir . '/Classes/Upload.php',
+    'Validation' => $baseDir . '/Classes/Validation.php',
 );

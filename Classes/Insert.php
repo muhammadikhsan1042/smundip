@@ -16,18 +16,28 @@ class Insert
     else return false;
   }
 
-  public function Cek_data($table, $kolom='*', $value=null){
-    if ($this->_db->Cek_data($table, $kolom, $value)) return true;
+  public function Update_data($table, $kolom, $value, $index)
+  {
+    return $this->_db->Update_data($table, $kolom, $value, $index);
+  }
+
+  public function Cek_data($table, $value=null, $kolom='*'){
+    if ($this->_db->Cek_data($table, $value, $kolom)) return true;
     else return false;
   }
 
-  public function Select_data($table, $kolom='*', $value=null)
+  public function all_Count($table, $key=null, $value=null)
   {
-    return $this->_db->Select_data($table, $kolom, $value);
+    return $this->_db->all_Count($table, $key, $value);
   }
 
-  public function Limit_data($tabel, $kolom='*', $awal=null, $panjang)
+  public function fil_Count($table, $kolom, $_like)
   {
-    return $this->_db->Limit_data($tabel, $kolom, $awal, $panjang);
+    return $this->_db->fil_Count($table, $kolom, $_like);
+  }
+
+  public function Limit_data($tabel, $panjang, $awal=null, $order=null, $kolom=null, $_like=null)
+  {
+    return $this->_db->Limit_data($tabel, $panjang, $awal, $order, $kolom, $_like);
   }
 }

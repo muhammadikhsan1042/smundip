@@ -11,30 +11,51 @@
 
 #Page_Beranda{
   width: 100%;
-  padding: 50px 120px;
+  padding: 50px 100px;
   display: flex;
+  background-color: rgba(11, 152, 145, 0.25);
   #MWrap{
     width: 100%;
-  }
-
-  #MWrap>div>div:nth-of-type(1){
     text-align: center;
+    h1{
+      display: inline-block;
+      padding: 0 40px 10px 40px;
+      border-bottom: 6px double black
+    }
   }
-
-  #MWrap>div>div:nth-of-type(2){
+  #MWrap>div:nth-of-type(1){
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0;
     justify-content: center;
     div{
-      border-radius: 10px;
-      width: 31%;
-      border: 1px solid rgb(224, 224, 224);
-      border-bottom: 5px solid rgb(224, 224, 224);
-      border-left: 5px solid rgb(224, 224, 224);
-      background-color: white;
-      height: 300px;
-      margin: 10px 10px;
+      border-radius: 5px;
+      width: 28%;
+      margin: 10px 20px;
+      img{
+        width: 100%;
+        border-radius: 10px;
+      }
+      img:hover{
+        box-shadow: 10px 15px 20px rgb(167, 167, 167);
+        cursor: pointer;
+      }
+    }
+  }
+  #MWrap>div:nth-of-type(2){
+    display:flex;
+    justify-content: center;
+    div{
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-align: center;
+      border: 1px solid orange;
+    }
+    div:hover{
+      background-color: orange;
+      color: white;
+      cursor: pointer;
     }
   }
 }
@@ -144,6 +165,169 @@
     }
     thead, tbody:nth-of-type(even){
       background-color: rgb(228, 228, 228);
+    }
+    tbody{
+      cursor: pointer;
+    }
+  }
+}
+
+/*-------------------PROFIL STYLE--------------------*/
+#Page_Profil{
+  padding: 50px 0 50px 180px;
+  table{
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  thead td{
+    margin-left: 10px;
+  }
+  img{
+    margin-top: 20px;
+  }
+  thead, tbody>tr:nth-of-type(even){
+    background-color: rgb(228, 228, 228);
+  }
+}
+
+/*-------------------KONTAK STYLE--------------------*/
+#Kontak{
+  padding: 40px 0;
+  h1{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+#Kontak>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Kontak>div>div:nth-of-type(2){
+  border-left: 1px solid rgb(186, 186, 186);
+  border-right: 1px solid rgb(186, 186, 186);
+}
+#Kontak>div>div{
+  padding: 30px 50px;
+}
+#Kontak>div>div>div{
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  div:nth-of-type(1){
+    margin-right: 10px;
+  }
+}
+
+/*-------------------BERITA STYLE--------------------*/
+
+#Page_Berita{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+#Page_Berita>div:nth-of-type(1){
+  width: 50%;
+}
+
+#Page_Berita>div:nth-of-type(1)>div{
+  display: flex;
+  border-bottom: 1px dashed black;
+  padding: 0 10px 20px 10px;
+  margin: 30px 0;
+}
+
+#Page_Berita>div:nth-of-type(1)>div:hover{
+  cursor: pointer;
+}
+
+#News-Content{
+  padding: 0 15px;
+  div:nth-of-type(1){
+    font-size: 16px;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+  }
+  div:nth-of-type(2){
+    text-align: justify;
+    height: 72px;
+    overflow: hidden;
+  }
+}
+
+#Page_Berita>div:nth-of-type(2){
+  width: 20%;
+  padding: 10px 20px;
+  h4{
+    color: rgb(255, 0, 0);
+    margin-bottom: 10px;
+  }
+  li{
+    padding: 5px 0;
+    list-style: none;
+    a:hover{
+      text-decoration: underline;
+      color: rgb(195, 193, 0);
+    }
+  }
+}
+
+/*-------------------DETAIL STYLE--------------------*/
+#Page_Berita_Detail{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+#Page_Berita_Detail>div:nth-of-type(1){
+  width: 50%;
+  h2{
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 30px;
+  }
+  span{
+    display: flex;
+    align-items: center;
+    i{
+      margin: 0 5px;
+    }
+  }
+  div:nth-of-type(1){
+    margin-bottom: 40px;
+    text-align: center;
+    img{
+      height: 300px;
+    }
+  }
+  div:nth-of-type(2){
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 25px;
+  }
+}
+
+#Page_Berita_Detail>div:nth-of-type(2){
+  width: 20%;
+  padding: 10px 20px;
+  h4{
+    color: rgb(255, 0, 0);
+    margin-bottom: 10px;
+  }
+  ul{
+    margin-bottom: 20px;
+  }
+  li{
+    padding: 5px 0;
+    list-style: none;
+    a:hover{
+      text-decoration: underline;
+      color: rgb(195, 193, 0);
     }
   }
 }

@@ -63,6 +63,10 @@ main {
   border-radius: 2px;
 }
 
+.hidden {
+  display: none;
+}
+
 /*---------------------------------------------*/
 /*----------------HEADER STYLE-----------------*/
 /*---------------------------------------------*/
@@ -283,30 +287,53 @@ footer .FLine1:nth-of-type(2) div:nth-of-type(5):hover {
 /*-------------------BERANDA STYLE--------------------*/
 #Page_Beranda {
   width: 100%;
-  padding: 50px 120px;
+  padding: 50px 100px;
   display: flex;
+  background-color: rgba(11, 152, 145, 0.25);
 }
 #Page_Beranda #MWrap {
   width: 100%;
-}
-#Page_Beranda #MWrap > div > div:nth-of-type(1) {
   text-align: center;
 }
-#Page_Beranda #MWrap > div > div:nth-of-type(2) {
+#Page_Beranda #MWrap h1 {
+  display: inline-block;
+  padding: 0 40px 10px 40px;
+  border-bottom: 6px double black;
+}
+#Page_Beranda #MWrap > div:nth-of-type(1) {
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0;
   justify-content: center;
 }
-#Page_Beranda #MWrap > div > div:nth-of-type(2) div {
+#Page_Beranda #MWrap > div:nth-of-type(1) div {
+  border-radius: 5px;
+  width: 28%;
+  margin: 10px 20px;
+}
+#Page_Beranda #MWrap > div:nth-of-type(1) div img {
+  width: 100%;
   border-radius: 10px;
-  width: 31%;
-  border: 1px solid #e0e0e0;
-  border-bottom: 5px solid #e0e0e0;
-  border-left: 5px solid #e0e0e0;
-  background-color: white;
-  height: 300px;
-  margin: 10px 10px;
+}
+#Page_Beranda #MWrap > div:nth-of-type(1) div img:hover {
+  box-shadow: 10px 15px 20px #a7a7a7;
+  cursor: pointer;
+}
+#Page_Beranda #MWrap > div:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+}
+#Page_Beranda #MWrap > div:nth-of-type(2) div {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-align: center;
+  border: 1px solid orange;
+}
+#Page_Beranda #MWrap > div:nth-of-type(2) div:hover {
+  background-color: orange;
+  color: white;
+  cursor: pointer;
 }
 
 /*-------------------LEGISLASI STYLE--------------------*/
@@ -412,6 +439,172 @@ footer .FLine1:nth-of-type(2) div:nth-of-type(5):hover {
 }
 #Page_anggota #kaWrap2 thead, #Page_anggota #kaWrap2 tbody:nth-of-type(even) {
   background-color: #e4e4e4;
+}
+#Page_anggota #kaWrap2 tbody {
+  cursor: pointer;
+}
+
+/*-------------------PROFIL STYLE--------------------*/
+#Page_Profil {
+  padding: 50px 0 50px 180px;
+}
+#Page_Profil table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#Page_Profil thead td {
+  margin-left: 10px;
+}
+#Page_Profil img {
+  margin-top: 20px;
+}
+#Page_Profil thead, #Page_Profil tbody > tr:nth-of-type(even) {
+  background-color: #e4e4e4;
+}
+
+/*-------------------KONTAK STYLE--------------------*/
+#Kontak {
+  padding: 40px 0;
+}
+#Kontak h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#Kontak > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Kontak > div > div:nth-of-type(2) {
+  border-left: 1px solid #bababa;
+  border-right: 1px solid #bababa;
+}
+
+#Kontak > div > div {
+  padding: 30px 50px;
+}
+
+#Kontak > div > div > div {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+#Kontak > div > div > div div:nth-of-type(1) {
+  margin-right: 10px;
+}
+
+/*-------------------BERITA STYLE--------------------*/
+#Page_Berita {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+#Page_Berita > div:nth-of-type(1) {
+  width: 50%;
+}
+
+#Page_Berita > div:nth-of-type(1) > div {
+  display: flex;
+  border-bottom: 1px dashed black;
+  padding: 0 10px 20px 10px;
+  margin: 30px 0;
+}
+
+#Page_Berita > div:nth-of-type(1) > div:hover {
+  cursor: pointer;
+}
+
+#News-Content {
+  padding: 0 15px;
+}
+#News-Content div:nth-of-type(1) {
+  font-size: 16px;
+  padding: 5px 0;
+  text-overflow: ellipsis;
+}
+#News-Content div:nth-of-type(2) {
+  text-align: justify;
+  height: 72px;
+  overflow: hidden;
+}
+
+#Page_Berita > div:nth-of-type(2) {
+  width: 20%;
+  padding: 10px 20px;
+}
+#Page_Berita > div:nth-of-type(2) h4 {
+  color: red;
+  margin-bottom: 10px;
+}
+#Page_Berita > div:nth-of-type(2) li {
+  padding: 5px 0;
+  list-style: none;
+}
+#Page_Berita > div:nth-of-type(2) li a:hover {
+  text-decoration: underline;
+  color: #c3c100;
+}
+
+/*-------------------DETAIL STYLE--------------------*/
+#Page_Berita_Detail {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+#Page_Berita_Detail > div:nth-of-type(1) {
+  width: 50%;
+}
+#Page_Berita_Detail > div:nth-of-type(1) h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+#Page_Berita_Detail > div:nth-of-type(1) span {
+  display: flex;
+  align-items: center;
+}
+#Page_Berita_Detail > div:nth-of-type(1) span i {
+  margin: 0 5px;
+}
+#Page_Berita_Detail > div:nth-of-type(1) div:nth-of-type(1) {
+  margin-bottom: 40px;
+  text-align: center;
+}
+#Page_Berita_Detail > div:nth-of-type(1) div:nth-of-type(1) img {
+  height: 300px;
+}
+#Page_Berita_Detail > div:nth-of-type(1) div:nth-of-type(2) {
+  text-align: justify;
+  text-indent: 30px;
+  line-height: 25px;
+}
+
+#Page_Berita_Detail > div:nth-of-type(2) {
+  width: 20%;
+  padding: 10px 20px;
+}
+#Page_Berita_Detail > div:nth-of-type(2) h4 {
+  color: red;
+  margin-bottom: 10px;
+}
+#Page_Berita_Detail > div:nth-of-type(2) ul {
+  margin-bottom: 20px;
+}
+#Page_Berita_Detail > div:nth-of-type(2) li {
+  padding: 5px 0;
+  list-style: none;
+}
+#Page_Berita_Detail > div:nth-of-type(2) li a:hover {
+  text-decoration: underline;
+  color: #c3c100;
 }
 
 /*# sourceMappingURL=Index.css.map */

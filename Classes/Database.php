@@ -20,6 +20,8 @@ class Database
     return self::$INSTANCE;
   }
 
+  /*================MEMASUKAN DATA=================*/
+
   public function post($table, $value=array())
   {
 
@@ -41,7 +43,66 @@ class Database
 
     }
 
-    public function runQuery($query, $type = true)
+    /*================MENGANTI DATA=================*/
+    public function Update_data($tabel, $kolom, $value, $index){
+      $query = "UPDATE $tabel SET $kolom = '$value' WHERE id = $index";
+
+      return $this->runQuery($query);
+    }
+
+    /*================PENGECEKAN DATA=================*/
+
+    public function Cek_data($table, $value, $kolom){
+      if (isset($value)) {
+        $query = "SELECT $kolom FROM $table WHERE $kolom='$value'";
+      } else {
+        $query = "SELECT $kolom FROM $table";
+      }
+      return $this->runCekQuery($query);
+    }
+
+
+    /*================PENGAMBILAN DATA=================*/
+
+    public function all_Count($table, $key, $value){
+      if (isset($value) && isset($key)) {
+        $query = "SELECT * FROM $table WHERE $key='$value'";
+      } else {
+        $query = "SELECT * FROM $table";
+      }
+      return $this->runCekQuery($query, false);
+    }
+
+    public function fil_Count($table, $kolom, $_like){
+       $query = "SELECT * FROM $table WHERE $kolom LIKE '$_like'";
+       return $this->runCekQuery($query, false);
+    }
+
+    public function Limit_data($tabel, $panjang, $awal, $order, $kolom, $_like){
+      if (isset($awal) && !isset($order) && !isset($kolom)) {
+        $query = "SELECT * FROM $tabel LIMIT $awal, $panjang";
+      } elseif(!isset($awal) && !isset($order) && !isset($kolom)){
+        $query = "SELECT * FROM $tabel LIMIT $panjang";
+      } elseif (isset($awal) && isset($order) && !isset($kolom)) {
+        $query = "SELECT * FROM $tabel ORDER BY $order LIMIT $awal, $panjang";
+      } elseif (!isset($awal) && isset($order) && !isset($kolom)) {
+        $query = "SELECT * FROM $tabel ORDER BY $order LIMIT $panjang";
+      } elseif (!isset($awal) && isset($order) && isset($kolom)) {
+        $query = "SELECT * FROM $tabel WHERE $kolom LIKE '$_like' ORDER BY $order LIMIT $panjang";
+      } elseif (isset($awal) && isset($order) && isset($kolom)) {
+        $query = "SELECT * FROM $tabel WHERE $kolom LIKE '$_like' ORDER BY $order LIMIT $awal, $panjang";
+      }
+      return $this->runCekQuery($query, false);
+    }
+
+    /*================MENJALANKAN QUERY=================*/
+    public function runQuery($query)
+    {
+      if ($this->mysqli->query($query))return true;
+      else return false;
+    }
+
+    public function runCekQuery($query, $type = true)
     {
       $resault = $this->mysqli->query($query);
       if ($type) {
@@ -51,33 +112,6 @@ class Database
         if ($resault && $resault->num_rows > 0)return $this->mysqli->query($query);
         return null;
       }
-    }
-
-    public function Cek_data($table, $kolom, $value){
-      if (isset($value)) {
-        $query = "SELECT $kolom FROM $table WHERE $kolom=$value";
-      } else {
-        $query = "SELECT $kolom FROM $table";
-      }
-      return $this->runQuery($query);
-    }
-
-    public function Select_data($table, $kolom, $value){
-      if (isset($value)) {
-        $query = "SELECT $kolom FROM $table WHERE $kolom=$value";
-      } else {
-        $query = "SELECT $kolom FROM $table";
-      }
-      return $this->runQuery($query, false);
-    }
-
-    public function Limit_data($tabel, $kolom, $awal, $panjang){
-      if (isset($awal)) {
-        $query = "SELECT $kolom FROM $tabel LIMIT $awal, $panjang";
-      } else{
-        $query = "SELECT $kolom FROM $tabel LIMIT $panjang";
-      }
-      return $this->runQuery($query, false);
     }
 
     public function escape($value)

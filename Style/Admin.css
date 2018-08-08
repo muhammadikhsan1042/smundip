@@ -1,0 +1,132 @@
+/* --------------- ICON ---------------*/
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v38/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format("woff2");
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------- FONT ---------------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+input[type=button]:hover {
+  cursor: pointer;
+}
+
+main {
+  background-color: whitesmoke;
+}
+
+.Pagination {
+  display: flex;
+  padding-left: 180px;
+  align-items: center;
+  height: 100px;
+}
+.Pagination a {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  border: 1px solid grey;
+  margin: 0 2px;
+  background-color: #d7d7d7;
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*===============TAMPILAN UTAMA===============*/
+#Page_Admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#Page_Admin > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#Page_Admin > div > div:nth-of-type(1) {
+  width: 100%;
+  text-align: center;
+}
+
+#Page_Admin > div > div:nth-of-type(1):hover {
+  cursor: default !important;
+}
+
+#Page_Admin > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+#Page_Admin > div > div:hover {
+  cursor: pointer;
+}
+
+/*===============BERITA UTAMA===============*/
+#Page_Berita_Header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  background-color: green;
+  padding: 0 150px;
+}
+#Page_Berita_Header div {
+  width: 50%;
+}
+#Page_Berita_Header div span {
+  display: flex;
+  align-items: center;
+}
+#Page_Berita_Header div span i {
+  margin-right: 10px;
+}
+#Page_Berita_Header div:nth-of-type(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+#Page_Berita_Header div:nth-of-type(2) button {
+  padding: 6px 35px;
+  margin: 0 10px;
+}
+
+/*# sourceMappingURL=Admin.css.map */

@@ -1,65 +1,24 @@
-<?php require_once 'Header.php'; ?>
+<?php require_once 'Layout/Header.php'; ?>
 
 <main id="Page_Beranda">
   <div id="MWrap">
-
-    <!-------------- Berita  ------------>
-    <div>
-      <div>
-        <a href="#"><h1>---- Senat Berbagi Cerita ----</h1></a>
-      </div>
+    <h1>BERITA TERBARU</h1>
       <div>
         <div>
-
+          <img src="myhome.jpg" alt="">
         </div>
         <div>
-
+          <img src="a.jpg" alt="">
         </div>
         <div>
-
+          <img src="b.jpg" alt="">
         </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-------------- Agenda  ------------>
-    <div>
-      <div>
-        <a href="#"><h1>---- Senat Besok Hari ----</h1></a>
       </div>
       <div>
-        <div>
-
+        <div onclick="href('berita')">
+          <strong>Lihat Semua</strong>
         </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-
       </div>
-    </div>
-
   </div>
 </main>
-
-<?php require_once 'Footer.php'; ?>
+<?php require_once 'Layout/Footer.php'; ?>

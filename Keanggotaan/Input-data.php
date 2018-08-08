@@ -1,5 +1,5 @@
 <?php
-  require_once 'Header.php';
+  require_once 'Layout/Header.php';
 
   if (Input::get('submit')) {
 
@@ -71,7 +71,7 @@
       'Upload_Foto'       => array(
                               'exist'    => true,
                               'type'     => 'image',
-                              'size'     => 5000000,
+                              'size'     => 2000000,
                             ),
     ));
 
@@ -87,19 +87,19 @@
     if ($validation->passed() && $Upload->setFile(Input::get('Upload_Foto')['tmp_name'], "./Upload/".Input::get('NIM').".jpg")) {
 
       if (Input::get('Jabatan_1') != 'Staf Ahli')$Delegasi = Input::get('Delegasi');
-      else $Delegasi = null;
+      else $Delegasi = NULL;
 
       if (Input::get('Komisi') != 'BKSAP' || Input::get('Komisi') != 'BURT')$Komisi = Input::get('Komisi');
       else $Komisi = 'Staf Ahli';
 
       if (!empty(Input::get('Jabatan_2')) && Input::get('Jabatan_1') != 'Staf Ahli' && Input::get('Komisi') != 'Pimpinan')$Jabatan_2 = Input::get('Jabatan_2');
-      else $Jabatan_2 = null;
+      else $Jabatan_2 = NULL;
 
       // Input data ke database
       $Insert->Post_data('list_anggota', array(
         'Nama_Lengkap'     => strtoupper(Input::get('Nama_Lengkap')),
         'Nama_Panggilan'   => strtoupper(Input::get('Nama_Panggilan')),
-        'Gender'           => Input::get('Jenis_Kelamin'),
+        'Jenis_Kelamin'    => Input::get('Jenis_Kelamin'),
         'Tempat_Lahir'     => ucfirst(Input::get('Tempat_Lahir')),
         'Tanggal_Lahir'    => Input::get('Tanggal_Lahir'),
         'Alamat_Rumah'     => ucfirst(Input::get('Alamat_Rumah')),
@@ -115,16 +115,14 @@
         'Nama_Foto'        => Input::get('NIM').'.jpg'
       ));
 
-      echo "<script>alert('Berhasil Memasukan Data');history.go(-1) </script>";
-      return false;
-
+      header("location: /keanggotaan?");
     } else {
       $errors = $validation->errors();
     }
   }
 ?>
 <main id="Input-data">
-  <form action="/Input-data" method="post" enctype="multipart/form-data">
+  <form action="<?php echo $_SERVER['HTTP_HOST'] ?>/../Input-data" method="post" enctype="multipart/form-data">
     <h1>Data Diri Anggota Senat Mahasiswa Universitas Diponegoro</h1>
     <div>
       <span style="color:red">Note : Untuk Kerapian, Disetiap awal kata diawali dengan huruf kapital</span>
@@ -307,7 +305,7 @@
             <td width="200" style="padding-left:6px">Komisi atau Biro</td>
             <td width="10">:</td>
             <td width="300">
-              <select name="Komisi">
+              <select name="Komisi" onchange="liveChange_2(this, 'Pimpinan', 'nonPimpinan', 'Pimpinan')">
                 <option value="">-- Pilih disini --</option>
                 <option value="Pimpinan" <?php if (Input::get('Komisi') == 'Pimpinan'): ?>
                     selected
@@ -350,18 +348,18 @@
             <td width="200" style="padding-left:6px">Jabatan 1</td>
             <td width="10">:</td>
             <td width="300">
-              <select name="Jabatan_1">
+              <select name="Jabatan_1" onchange="liveChange(this, 'Staf Ahli', 'Delegasi'), liveChange(this, 'Staf Ahli', 'Jabatan_2')">
                 <option value="">-- Pilih disini --</option>
-                <option value="Ketua" <?php if (Input::get('Jabatan_1') == 'Ketua'): ?>
+                <option class="Pimpinan" value="Ketua" <?php if (Input::get('Jabatan_1') == 'Ketua'): ?>
                     selected
                 <?php endif; ?>>Ketua</option>
-                <option value="Wakil Ketua" <?php if (Input::get('Jabatan_1') == 'Wakil Ketua'): ?>
+                <option class="Pimpinan" value="Wakil Ketua" <?php if (Input::get('Jabatan_1') == 'Wakil Ketua'): ?>
                     selected
                 <?php endif; ?>>Wakil Ketua</option>
-                <option value="Senator Komisi" <?php if (Input::get('Jabatan_1') == 'Senator Komisi'): ?>
+                <option class="nonPimpinan" value="Senator Komisi" <?php if (Input::get('Jabatan_1') == 'Senator Komisi'): ?>
                     selected
                 <?php endif; ?>>Senator Komisi</option>
-                <option value="Staf Ahli" <?php if (Input::get('Jabatan_1') == 'Staf Ahli'): ?>
+                <option class="nonPimpinan" value="Staf Ahli" <?php if (Input::get('Jabatan_1') == 'Staf Ahli'): ?>
                     selected
                 <?php endif; ?>>Staf Ahli</option>
               </select>
@@ -374,7 +372,7 @@
             </tr>
           <?php endif; ?>
 
-          <tr align="left" height="25" id="Delegasi">
+          <tr align="left" class="hidden" height="25" id="Delegasi">
             <td width="200" style="padding-left:6px">Delegasi</td>
             <td width="10">:</td>
             <td width="300"><input type="text" name="Delegasi" placeholder="Contoh : Peduli Sosial" value="<?php echo Input::get('Delegasi') ?>"></td>
@@ -386,7 +384,7 @@
             </tr>
           <?php endif; ?>
 
-          <tr align="left" height="25">
+          <tr align="left" height="25" id="Jabatan_2" class="hidden">
             <td width="200" style="padding-left:6px">Jabatan 2</td>
             <td width="10">:</td>
             <td width="300">
@@ -432,4 +430,4 @@
 </form>
 
 </main>
-<?php include_once 'Footer.php'; ?>
+<?php require_once 'Layout/Footer.php'; ?>

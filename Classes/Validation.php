@@ -39,7 +39,7 @@ class Validation
             break;
           case 'size':
               if (Input::get($item)['size'] > $values) {
-                $this->addError('File Terlalu Besar', $item);
+                $this->addError('File Harus Lebih Kecil dari '.$values/1000000 .' MB', $item);
               }
             break;
           case 'type':
@@ -48,8 +48,14 @@ class Validation
               }
             break;
           case 'equals':
-              if ($values) {
-                $this->addError($name.' Telah Terdaftar', $item);
+              if (is_bool($values)) {
+                if ($values) {
+                  $this->addError($values, $item);
+                }
+              } else {
+                if (Input::get($item)!=Dotenv::env($values)) {
+                  $this->addError($name.' Tidak Terdaftar', $item);
+                }
               }
             break;
           default:
