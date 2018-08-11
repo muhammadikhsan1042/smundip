@@ -12,9 +12,9 @@ function goTo(tujuan) {
   window.open(tujuan, '_blank');
 }
 
-function search(delegasi) {
+function search(delegasi, link) {
   goTo = document.getElementById(delegasi).value;
-  return href('keanggotaan?search='+goTo);
+  return href(link+goTo);
 }
 
 function liveChange(cek, nilai, tujuan) {

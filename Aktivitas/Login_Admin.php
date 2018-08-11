@@ -24,7 +24,7 @@ require_once __DIR__.'/../Core/Init.php';
     if ($validation->passed()) {
       $result = $Insert->Update_data('set_token', 'longString', Input::get('Token'), 1);
       if ($result) {
-        $cek = setcookie('USER_ADMIN', Input::get('Token'), time() + (360000), "smundip.com/");
+        $cek = setcookie('USER_ADMIN', Input::get('Token'), time() + (1800), "smundip.com/");
         if ($cek) {
           header("location: /Aktivitas/Admin");
         }

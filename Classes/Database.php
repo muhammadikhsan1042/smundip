@@ -73,9 +73,13 @@ class Database
       return $this->runCekQuery($query, false);
     }
 
-    public function fil_Count($table, $kolom, $_like){
-       $query = "SELECT * FROM $table WHERE $kolom LIKE '$_like'";
-       return $this->runCekQuery($query, false);
+    public function fil_Count($table, $kolom, $_like, $and){
+      if (!isset($and)) {
+        $query = "SELECT * FROM $table WHERE $kolom LIKE '$_like'";
+      } else {
+        $query = "SELECT * FROM $table WHERE $kolom LIKE '$_like' OR $and LIKE '$_like'";
+      }
+      return $this->runCekQuery($query, false);
     }
 
     public function Limit_data($tabel, $panjang, $awal, $order, $kolom, $_like){
@@ -92,6 +96,20 @@ class Database
       } elseif (isset($awal) && isset($order) && isset($kolom)) {
         $query = "SELECT * FROM $tabel WHERE $kolom LIKE '$_like' ORDER BY $order LIMIT $awal, $panjang";
       }
+      return $this->runCekQuery($query, false);
+    }
+
+    public function news($tabel, $order, $panjang, $awal, $like, $kolom, $and){
+      if (!isset($awal) && !isset($like) && !isset($and)) {
+        $query = "SELECT * FROM $tabel ORDER BY $order DESC LIMIT $panjang";
+      } elseif (isset($awal) && !isset($like) && !isset($and)) {
+        $query = "SELECT * FROM $tabel ORDER BY $order DESC LIMIT $awal, $panjang";
+      } elseif (isset($awal) && isset($like) && !isset($and)) {
+        $query = "SELECT * FROM $tabel WHERE $kolom LIKE '$like' ORDER BY $order DESC LIMIT $awal, $panjang";
+      } elseif (isset($awal) && isset($like) && isset($and)) {
+        $query = "SELECT * FROM $tabel WHERE $kolom LIKE '$like' OR $and LIKE '$like' ORDER BY $order DESC LIMIT $awal, $panjang";
+      }
+
       return $this->runCekQuery($query, false);
     }
 

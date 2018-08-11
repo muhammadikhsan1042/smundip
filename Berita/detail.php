@@ -1,67 +1,55 @@
-<?php require_once __DIR__.'/../Layout/Header.php';?>
+<?php
+  require_once __DIR__.'/../Layout/Header.php';
+
+  /*=============KONTEN============*/
+  $_data = (!empty($Insert->all_Count('berita_kegiatan', 'id', Input::get('id')))) ? $Insert->all_Count('berita_kegiatan', 'id', Input::get('id')) : header('location: /berita') ;
+
+  $_data  = $_data->fetch_assoc();
+  $_namaGambar = explode(', ', $_data['nama_gambar']);
+
+  /*============SLIDE==============*/
+  $_slide = $Insert->news('berita_kegiatan', 'id', 10);
+
+?>
 <main id="Page_Berita_Detail">
 
   <div>
-    <h2>DISINI JUDUL DITULIS KALAU DITULIS PANJANG JUGA TIDAK APA APA</h2>
+    <h2><?php echo $_data['judul'] ?></h2>
     <div>
-      <img src="Upload/a.jpg" alt="">
-      <img src="Upload/a.jpg" alt="">
-      <img src="Upload/a.jpg" alt="">
-      <img src="Upload/a.jpg" alt="">
+      <?php foreach ($_namaGambar as $value): ?>
+        <img src="Upload/<?php echo $value ?>">
+      <?php endforeach; ?>
     </div>
-    <span><i class="material-icons">date_range</i>XX-XX-XXXX / <i class="material-icons">people</i> KOMISI XX</span>
+    <span><i class="material-icons">date_range</i> <?php echo date('d F Y', strtotime($_data['tanggal'])); ?> / <i class="material-icons">people</i> <?php echo $_data['komisi_terkait'] ?></span>
     <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+      <p><?php echo nl2br($_data['isi']); ?></p>
     </div>
   </div>
 
   <div>
     <h4>LIHAT BERITA LAINNYA</h4>
     <ul>
-      <li><a href="#">Berita Sidang</a></li>
-      <li><a href="#">Berita Pimpinan</a></li>
-      <li><a href="#">Berita Badan Legislasi</a></li>
-      <li><a href="#">Berita Badan Anggran</a></li>
-      <li><a href="#">Berita Badan Kehormatan</a></li>
-      <li><a href="#">Berita Komisi I</a></li>
+      <?php foreach ($_slide as $value): ?>
+        <li><a href="/berita/detail?id=<?php echo $value['id'] ?>"><?php echo $value['judul'] ?></a></li>
+      <?php endforeach; ?>
     </ul>
     <h4>BERITA</h4>
     <ul>
-      <li><a href="#">Berita Sidang</a></li>
-      <li><a href="#">Berita Pimpinan</a></li>
-      <li><a href="#">Berita Badan Legislasi</a></li>
-      <li><a href="#">Berita Badan Anggran</a></li>
-      <li><a href="#">Berita Badan Kehormatan</a></li>
-      <li><a href="#">Berita Komisi I</a></li>
-      <li><a href="#">Berita Komisi II</a></li>
-      <li><a href="#">Berita Komisi III</a></li>
-      <li><a href="#">Berita Komisi IV</a></li>
-      <li><a href="#">Berita Komisi V</a></li>
-      <li><a href="#">Berita Komisi VI</a></li>
-      <li><a href="#">Berita BURT</a></li>
-      <li><a href="#">Berita BKSAP</a></li>
-      <li><a href="#">Berita Panitia Khusus</a></li>
-      <li><a href="#">Berita Lain-Lain</a></li>
+      <li><a href="/berita?see=Sidang">Berita Sidang</a></li>
+      <li><a href="/berita?see=Pimpinan">Berita Pimpinan</a></li>
+      <li><a href="/berita?see=Legislasi">Berita Badan Legislasi</a></li>
+      <li><a href="/berita?see=Anggran">Berita Badan Anggran</a></li>
+      <li><a href="/berita?see=Kehormatan">Berita Badan Kehormatan</a></li>
+      <li><a href="/berita?see=Komisi 1">Berita Komisi I</a></li>
+      <li><a href="/berita?see=Komisi 2">Berita Komisi II</a></li>
+      <li><a href="/berita?see=Komisi 3">Berita Komisi III</a></li>
+      <li><a href="/berita?see=Komisi 4">Berita Komisi IV</a></li>
+      <li><a href="/berita?see=Komisi 5">Berita Komisi V</a></li>
+      <li><a href="/berita?see=Komisi 6">Berita Komisi VI</a></li>
+      <li><a href="/berita?see=BURT">Berita BURT</a></li>
+      <li><a href="/berita?see=BKSAP">Berita BKSAP</a></li>
+      <li><a href="/berita?see=Khusus">Berita Panitia Khusus</a></li>
+      <li><a href="/berita?see=Lain-Lain">Berita Lain-Lain</a></li>
     </ul>
   </div>
 

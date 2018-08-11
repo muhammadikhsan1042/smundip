@@ -4,18 +4,18 @@ $(document).ready(function() {
   /*=================== SEARCH MENU ===================*/
   /*===================================================*/
 
+  $('#Pencarian').click(function() {
+    $('.hHidden').hide('fast');
+    $('.aSearch').show('fast');
+    return false;
+  });
+
   $('body').click(function() {
     $('#HMenu1').click(function(event) {
       return false;
     });
     $('.hHidden').show('fast');
     $('.aSearch').hide('fast');
-  });
-
-  $('#Pencarian').click(function() {
-    $('.hHidden').hide('fast');
-    $('.aSearch').show('fast');
-    return false;
   });
 
   /*===================================================*/

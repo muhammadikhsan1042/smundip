@@ -30,11 +30,11 @@ require_once 'Layout/Header.php';
     </div>
     <div>
       <img src="Assets/notebook.png" alt="Konter Agenda" width="50px">
-      <span><strong>Konten Beranda</strong></span>
+      <span><strong>Konten Agenda</strong></span>
     </div>
     <div>
       <img src="Assets/rating.png" alt="Konter Transparansi" width="50px">
-      <span><strong>Konten Beranda</strong></span>
+      <span><strong>Konten Transparansi</strong></span>
     </div>
   </div>
 </main>

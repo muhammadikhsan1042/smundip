@@ -35,7 +35,7 @@
           <div class="aSearch" style="display:none">
             <label for="aInput_Search" style="cursor:pointer"><i class="material-icons">search</i></label>
             <input type="text" id="aInput_Search" name="aPencarian" placeholder="Ketik Pencarian">
-            <input type="button" name="aCari" value="Cari">
+            <input type="button" name="aCari" value="Cari" onclick="search('aInput_Search', 'berita?search=')">
           </div>
 
           <div class="hHidden">
@@ -114,7 +114,7 @@
                   <input type="text" id="search_members" placeholder="Masukan NIM/Nama Anggota">
                 </div>
                 <div>
-                  <input type="button" value="Cari" onclick="search('search_members')">
+                  <input type="button" value="Cari" onclick="search('search_members', 'keanggotaan?search=')">
                 </div>
               </div>
             </div>

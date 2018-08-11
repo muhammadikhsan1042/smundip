@@ -68,6 +68,10 @@ main {
 }
 
 /*===============TAMPILAN UTAMA===============*/
+button:hover {
+  cursor: pointer;
+}
+
 #Page_Admin {
   display: flex;
   justify-content: center;
@@ -107,7 +111,7 @@ main {
   display: flex;
   height: 60px;
   align-items: center;
-  background-color: green;
+  background-color: #009999;
   padding: 0 150px;
 }
 #Page_Berita_Header div {
@@ -127,6 +131,35 @@ main {
 #Page_Berita_Header div:nth-of-type(2) button {
   padding: 6px 35px;
   margin: 0 10px;
+}
+
+#Page_Berita_Konten {
+  height: 100%;
+  padding: 40px 400px 0 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#Page_Berita_Konten input[type=text] {
+  width: 700px;
+  height: 35px;
+  font-weight: 400;
+  font-size: 24px;
+  padding: 0 20px;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid grey;
+  margin-bottom: 20px;
+}
+#Page_Berita_Konten input[type=text]:focus {
+  outline: inherit;
+}
+#Page_Berita_Konten textarea {
+  margin-top: 20px;
+}
+
+#Page_Berita_Konten > form > div:nth-of-type(2) {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=Admin.css.map */

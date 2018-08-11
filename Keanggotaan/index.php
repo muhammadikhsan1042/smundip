@@ -5,8 +5,7 @@ require_once __DIR__.'/../Layout/Header.php';
   //Variabel-Variabel
   $_i = 1;
   $_Order = 'Nama_Lengkap';
-  $_like  = Input::get('search');
-  $_like  = '%'.$_like.'%';
+  $_like  = '%'.Input::get('search').'%';
   $_link  = null;
 
 

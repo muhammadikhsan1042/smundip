@@ -2,7 +2,8 @@
 
 require_once __DIR__.'/../Layout/Header.php';
 
-$_anggota    = $Insert->all_Count('list_anggota', 'NIM', Input::get('NIM'));
+$_anggota = (!empty($Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')))) ? $Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')) : header('location: /keanggotaan') ;
+
 
 if(empty($_anggota->num_rows))header("location: /keanggotaan");
 
