@@ -31,7 +31,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div>
         <strong>SALSABILA</strong>
@@ -61,7 +60,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div>
         <strong>FARHAN SAVERO</strong>

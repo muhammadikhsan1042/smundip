@@ -1,19 +1,16 @@
 <?php require_once 'Layout/Header.php'; ?>
-
 <main id="Page_Legislasi">
   <div id="LWrap1">
     <h2>Produk Hukum Senat Mahasiswa</h2>
     <h1>Universitas Diponegoro</h1>
   </div>
   <div id="LWrap2">
-
     <div>
       <h4>Konstitusi</h4>
       <ul>
         <li><a href="<?php echo $_SERVER['HTTP_HOST'] ?>/../Produk Hukum/GBHK Undip 2016.pdf" target="_blank">GBHK Ormawa Undip 2016</a></li>
       </ul>
     </div>
-
     <div>
       <h4>Peraturan Mahasiswa</h4>
       <ul>
@@ -28,7 +25,6 @@
         <li><a href="<?php echo $_HOST ?>/../Produk Hukum/09_PERMA NO. 9 2018 TENTANG PEMIRA UNDIP.pdf" target="_blank">PERMA NO.9 2018 TENTANG PEMIRA UNDIP</a></li>
       </ul>
     </div>
-
     <div>
       <h4>Standard Operational Procedure</h4>
       <ul>
@@ -36,9 +32,6 @@
         <li><a href="<?php echo $_SERVER['HTTP_HOST'] ?>/../Produk Hukum/PEDOMAN BAKU PENGAWASAN UKM.pdf" target="_blank">PEDOMAN BAKU PENGAWASAN UKM</a></li>
       </ul>
     </div>
-
-
   </div>
 </main>
-
 <?php require_once 'Layout/Footer.php'; ?>

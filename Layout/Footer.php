@@ -8,11 +8,8 @@
       <div onclick="goTo('https://www.youtube.com/channel/UCnVGk5URrspkuVrcCUMmr1g')"><img src="/Assets/Icon/youtube.png" alt="Youtube" width="20px"></div>
     </div>
 </footer>
-
 </body>
-
 <script type="text/javascript" src="/Javascript/Framework/jquery.js"></script>
-<script type="text/javascript" src="/Javascript/Function.js"></script>
+<script type="text/javascript" src="/Javascript/Function.min.js"></script>
 <script type="text/javascript" src="/Javascript/jqCode.js"></script>
-
 </html>

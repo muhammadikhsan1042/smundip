@@ -1,20 +1,12 @@
 <?php
-
-require_once __DIR__.'/../Layout/Header.php';
-
-$_anggota = (!empty($Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')))) ? $Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')) : header('location: /keanggotaan') ;
-
-
-if(empty($_anggota->num_rows))header("location: /keanggotaan");
-
-$_sqlArray   = $_anggota->fetch_assoc();
-$_i          = 0;
-$_l          = 15;
-
-if (empty($_sqlArray['Delegasi']))$_l -= 1;
-if (empty($_sqlArray['Jabatan_2']))$_l -= 1;
-
-
+  require_once __DIR__.'/../Layout/Header.php';
+  $_anggota = (!empty($Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')))) ? $Insert->all_Count('list_anggota', 'NIM', Input::get('NIM')) : header('location: /keanggotaan') ;
+  if(empty($_anggota->num_rows))header("location: /keanggotaan");
+  $_sqlArray   = $_anggota->fetch_assoc();
+  $_i          = 0;
+  $_l          = 15;
+  if (empty($_sqlArray['Delegasi']))$_l -= 1;
+  if (empty($_sqlArray['Jabatan_2']))$_l -= 1;
 ?>
 <main id="Page_Profil">
   <table>
@@ -44,5 +36,4 @@ if (empty($_sqlArray['Jabatan_2']))$_l -= 1;
     </tbody>
   </table>
 </main>
-
 <?php require_once __DIR__.'/../Layout/Footer.php'; ?>

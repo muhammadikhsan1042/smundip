@@ -8,7 +8,6 @@ require_once __DIR__.'/../Layout/Header.php';
   $_like  = '%'.Input::get('search').'%';
   $_link  = null;
 
-
   //Variable Pagination
   if (isset($_GET['search'])) {
     if (!empty($Insert->fil_Count('list_anggota', 'Nama_Lengkap', $_like))) {
@@ -49,7 +48,6 @@ require_once __DIR__.'/../Layout/Header.php';
     <h2>Anggota Senat Mahasiswa</h2>
     <h1>Universitas Diponegoro</h1>
   </div>
-
   <div id="kaWrap2">
     <table>
       <thead>
@@ -60,7 +58,6 @@ require_once __DIR__.'/../Layout/Header.php';
           <th width='200'>Posisi</th>
         </tr>
       </thead>
-
       <?php if (!empty($_anggota)): ?>
 
         <?php foreach ($_anggota as $value): ?>
@@ -91,7 +88,6 @@ require_once __DIR__.'/../Layout/Header.php';
                 <td width='200'></td>
               </tr>
             </tbody>
-
           <?php else : ?>
             <tbody onclick="loadData('NIM',<?php echo $value['NIM'] ?>, 'profil?')">
               <tr align="left" height="50">
@@ -114,11 +110,8 @@ require_once __DIR__.'/../Layout/Header.php';
               </tr>
             </tbody>
           <?php endif; ?>
-
       <?php $_i++; endforeach; ?>
-
     <?php else: ?>
-
       <tbody>
         <tr align="left" height="50">
           <td width='110' rowspan="4" align='center'></td>
@@ -139,21 +132,15 @@ require_once __DIR__.'/../Layout/Header.php';
           <td width='200'></td>
         </tr>
       </tbody>
-
     <?php endif; ?>
-
     </table>
   </div>
-
   <div class="Pagination">
     <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo Input::get('page')-1 ?><?php echo $_link; ?>" onclick="<?php if($_page<=1)echo 'return false'; ?>" style="<?php if($_page<=1)echo 'background-color:rgb(135, 135, 135);color:rgb(163, 163, 163);'; ?>">Sebelumnya</a></span>
-
     <span><a href="?q=<?php echo $_jumlahData;?>&page=1<?php echo $_link; ?>" onclick="<?php if($_page==1)echo 'return false'; ?>" style="<?php if($_page==1)echo 'background-color:rgb(135, 135, 135);color:rgb(163, 163, 163);'; ?>">1</a></span>
-
     <?php if ($_page>=4 && $longPage>=5): ?>
       <span><a href="#" onclick="return false">...</a></span>
     <?php endif; ?>
-
     <?php if ($_page==1 && $longPage==2): ?>
       <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo $_page+1 ?><?php echo $_link; ?>"><?php echo $_page+1 ?></a></span>
     <?php elseif($_page==$longPage && $longPage==2): ?>
@@ -178,18 +165,13 @@ require_once __DIR__.'/../Layout/Header.php';
       <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo $_page-2 ?><?php echo $_link; ?>"><?php echo $_page-2 ?></a></span>
       <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo $_page-1 ?><?php echo $_link; ?>"><?php echo $_page-1 ?></a></span>
     <?php endif; ?>
-
-
     <?php if ($_page<=$longPage-3 && $longPage>=5): ?>
       <span><a href="#" onclick="return false">...</a></span>
     <?php endif; ?>
-
     <?php if ($longPage>=4): ?>
       <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo $longPage ?><?php echo $_link; ?>" onclick="<?php if($_page==$longPage)echo 'return false'; ?>" style="<?php if($_page==$longPage)echo 'background-color:rgb(135, 135, 135);color:rgb(163, 163, 163);'; ?>"><?php echo $longPage; ?></a></span>
     <?php endif; ?>
-
     <span><a href="?q=<?php echo $_jumlahData;?>&page=<?php echo $_page+1 ?><?php echo $_link; ?>" onclick="<?php if($_page>=$longPage)echo 'return false'; ?>" style="<?php if($_page>=$longPage)echo 'background-color:rgb(135, 135, 135);color:rgb(163, 163, 163);'; ?>">Selanjutnya</a></span>
   </div>
-
 </main>
 <?php require_once __DIR__.'/../Layout/Footer.php'; ?>

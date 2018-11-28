@@ -1,18 +1,13 @@
 <?php
   require_once __DIR__.'/../Layout/Header.php';
-
   /*=============KONTEN============*/
   $_data = (!empty($Insert->all_Count('berita_kegiatan', 'id', Input::get('id')))) ? $Insert->all_Count('berita_kegiatan', 'id', Input::get('id')) : header('location: /berita') ;
-
   $_data  = $_data->fetch_assoc();
   $_namaGambar = explode(', ', $_data['nama_gambar']);
-
   /*============SLIDE==============*/
   $_slide = $Insert->news('berita_kegiatan', 'id', 10);
-
 ?>
 <main id="Page_Berita_Detail">
-
   <div>
     <h2><?php echo $_data['judul'] ?></h2>
     <div>
@@ -25,7 +20,6 @@
       <p><?php echo nl2br($_data['isi']); ?></p>
     </div>
   </div>
-
   <div>
     <h4>LIHAT BERITA LAINNYA</h4>
     <ul>
@@ -52,6 +46,5 @@
       <li><a href="/berita?see=Lain-Lain">Berita Lain-Lain</a></li>
     </ul>
   </div>
-
 </main>
 <?php require_once __DIR__.'/../Layout/Footer.php';?>
